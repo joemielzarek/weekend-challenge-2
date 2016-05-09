@@ -17,13 +17,25 @@ $(document).ready(function() {
       highlight();
       addInfo();
 
+
+      setInterval(autoNext, 5000);
+
+      // Auto advance to next element in data.mu
+      function autoNext() {
+        currentMu++;
+        cycleThru();
+        addInfo();
+        highlight();
+      }
+
       //Highlight current index point
       function highlight() {
         $('.highlight').removeClass('highlight');
         $('.point').eq(currentMu).addClass('highlight');
       }
 
-      //Advance to next element in muList
+  
+      //Advance to next element in data.mu
       function next() {
         $('.next').on('click', function() {
           $('body').find('.person-container').empty();
